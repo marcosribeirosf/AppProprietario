@@ -32,7 +32,7 @@ public class ProprietarioAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                       int viewType) {
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.item_livro, parent, false);
+                .inflate(R.layout.item_proprietario, parent, false);
         ProprietarioViewHolder proprietarioViewHolder = new ProprietarioViewHolder(view);
         return proprietarioViewHolder;
     }
@@ -45,19 +45,7 @@ public class ProprietarioAdapter extends RecyclerView.Adapter {
 
         Proprietario proprietario  = proprietarios.get(position) ;
 
-        holder.nome.setText(proprietario.getNome());
-        holder.endereco.setText(proprietario.getEndereco());
-        holder.bairro.setText(proprietario.getBairro());
-        holder.cidade.setText(proprietario.getCidade());
-        holder.cnh.setText(proprietario.getCnh());
-        holder.telefone.setText(proprietario.getTelefone());
-        holder.email.setText(proprietario.getEmail());
-        holder.latitude.setText(proprietario.getLatitude());
-        holder.longitude.setText(proprietario.getLatitude());
-
-        Log.i("------XXXXXXXXX--", proprietario.getDescricao());
-
-
+        holder.nomeProprietario.setText(proprietario.getNome());
     }
 
     @Override
@@ -70,36 +58,18 @@ public class ProprietarioAdapter extends RecyclerView.Adapter {
 
     }
 
-    // Método responsável por remover um usuário da lista.
     private void removerItem(int position) {
 
     }
 
-    public class LivroViewHolder extends RecyclerView.ViewHolder {
+    public class ProprietarioViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView nome;
-        private final TextView endereco;
-        private final TextView bairro;
-        private final TextView cidade;
-        private final TextView cnh;
-        private final TextView telefone;
-        private final TextView email;
-        private final TextView latitude;
-        private final TextView longitude;
+        private final TextView nomeProprietario;
 
 
         public ProprietarioViewHolder(View itemView) {
             super(itemView);
-            nome = (TextView) itemView.findViewById(R.id.nome);
-            endereco = (TextView) itemView.findViewById(R.id.endereco);
-            bairro = (TextView) itemView.findViewById(R.id.bairro);
-            cidade = (TextView) itemView.findViewById(R.id.cidade);
-            cnh = (TextView) itemView.findViewById(R.id.cnh);
-            telefone = (TextView) itemView.findViewById(R.id.telefone);
-            email = (TextView) itemView.findViewById(R.id.email);
-            latitude = (TextView) itemView.findViewById(R.id.latitude);
-            longitude = (TextView) itemView.findViewById(R.id.longitude);
-
+            nomeProprietario = (TextView) itemView.findViewById(R.id.nome);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -107,7 +77,6 @@ public class ProprietarioAdapter extends RecyclerView.Adapter {
 
                 }
             });
-
 
         }
     }
