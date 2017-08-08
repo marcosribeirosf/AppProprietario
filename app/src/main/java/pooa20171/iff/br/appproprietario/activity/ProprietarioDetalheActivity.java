@@ -13,9 +13,9 @@ import pooa20171.iff.br.appproprietario.R;
 import pooa20171.iff.br.appproprietario.model.Proprietario;
 
 public class ProprietarioDetalheActivity extends AppCompatActivity {
-
-    EditText nome, endereco, bairro, cidade, telefone, email, latitude, longitude;
+    EditText nome, endereco, bairro, cidade, cnh, telefone, email, latitude, longitude;
     Button btsalvar,btalterar, btdeletar;
+
     int id;
     Proprietario proprietario;
     private Realm realm;
@@ -23,16 +23,17 @@ public class ProprietarioDetalheActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_proprietario_detalhe);
+        setContentView(R.layout.activity_proprietario_detalhes);
 
         nome = (EditText) findViewById(R.id.ed_nome_proprietario);
         endereco = (EditText) findViewById(R.id.ed_endereco_proprietario);
         bairro = (EditText) findViewById(R.id.ed_bairro_proprietario);
         cidade = (EditText) findViewById(R.id.ed_cidade_proprietario);
+        cnh = (EditText) findViewById(R.id.ed_cnh_proprietario);
         telefone = (EditText) findViewById(R.id.ed_telefone_proprietario);
         email = (EditText) findViewById(R.id.ed_email_proprietario);
-        longitude = (EditText) findViewById(R.id.ed_longitude_proprietario);
         latitude = (EditText) findViewById(R.id.ed_latitude_proprietario);
+        longitude = (EditText) findViewById(R.id.ed_longitude_proprietario);
 
         btsalvar = (Button) findViewById(R.id.bt_salvar_proprietario);
         btalterar = (Button) findViewById(R.id.bt_alterar_proprietario);
@@ -42,18 +43,18 @@ public class ProprietarioDetalheActivity extends AppCompatActivity {
         id = (int) intent.getSerializableExtra("id");
         realm = Realm.getDefaultInstance();
 
-
         if (id !=0) {
             btsalvar.setEnabled(false);
             btsalvar.setClickable(false);
             btsalvar.setVisibility(View.INVISIBLE);
+
             proprietario = realm.where(Proprietario.class).equalTo("id",id).findFirst();
 
             nome.setText(proprietario.getNome());
             endereco.setText(proprietario.getEndereco());
             bairro.setText(proprietario.getBairro());
             cidade.setText(proprietario.getCidade());
-            bairro.setText(proprietario.getBairro());
+            cnh.setText(proprietario.getCnh());
             telefone.setText(proprietario.getTelefone());
             email.setText(proprietario.getEmail());
             longitude.setText(proprietario.getLongitude());
@@ -101,7 +102,7 @@ public class ProprietarioDetalheActivity extends AppCompatActivity {
         realm.commitTransaction();
         realm.close();
 
-        Toast.makeText(this,"Proprietario deletado",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Proprietario deletado", Toast.LENGTH_LONG).show();
         this.finish();
 
     }
@@ -120,16 +121,17 @@ public class ProprietarioDetalheActivity extends AppCompatActivity {
         proprietario.setEndereco(endereco.getText().toString());
         proprietario.setBairro(bairro.getText().toString());
         proprietario.setCidade(cidade.getText().toString());
+        proprietario.setCnh(cnh.getText().toString());
         proprietario.setTelefone(telefone.getText().toString());
         proprietario.setEmail(email.getText().toString());
-        proprietario.setLongitude(longitude.getText().toString());
         proprietario.setLatitude(latitude.getText().toString());
+        proprietario.setLongitude(longitude.getText().toString());
 
         realm.copyToRealm(proprietario);
         realm.commitTransaction();
         realm.close();
 
-        Toast.makeText(this,"Proprietaro Cadastrado",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Proprietario Cadastrado",Toast.LENGTH_LONG).show();
         this.finish();
 
     }
@@ -141,11 +143,11 @@ public class ProprietarioDetalheActivity extends AppCompatActivity {
         proprietario.setEndereco(endereco.getText().toString());
         proprietario.setBairro(bairro.getText().toString());
         proprietario.setCidade(cidade.getText().toString());
+        proprietario.setCnh(cnh.getText().toString());
         proprietario.setTelefone(telefone.getText().toString());
         proprietario.setEmail(email.getText().toString());
-        proprietario.setLongitude(longitude.getText().toString());
         proprietario.setLatitude(latitude.getText().toString());
-
+        proprietario.setLongitude(longitude.getText().toString());
 
         realm.copyToRealm(proprietario);
         realm.commitTransaction();

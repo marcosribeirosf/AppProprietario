@@ -25,7 +25,7 @@ public class ProprietarioActivity extends AppCompatActivity implements ClickRecy
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_livro);
+        setContentView(R.layout.activity_proprietario);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -59,7 +59,7 @@ public class ProprietarioActivity extends AppCompatActivity implements ClickRecy
 
     protected void onResume() {
         super.onResume();
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_Livro);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_Proprietario);
 
         recyclerView.setAdapter(new ProprietarioAdapter(getProprietarios(),this,this));
         RecyclerView.LayoutManager layout = new LinearLayoutManager(this,

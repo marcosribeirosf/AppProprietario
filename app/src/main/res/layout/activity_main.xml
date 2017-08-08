@@ -7,13 +7,13 @@
     tools:context="pooa20171.iff.br.appproprietario.activity.MainActivity">
 
     <Button
-        android:id="@+id/bt_livros"
+        android:id="@+id/bt_proprietarios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:text="Livros"
+        android:text="Proprietários"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
