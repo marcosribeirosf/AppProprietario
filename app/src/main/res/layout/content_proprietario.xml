@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="pooa20171.iff.br.appproprietario.activity.ProprietarioActivity"
+    tools:context="pooa20171.iff.br.appproprietario.activity.MainActivity"
     tools:showIn="@layout/activity_proprietario">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="333dp"
         android:layout_height="430dp"
-        android:id="@+id/rv_Livro"
+        android:id="@+id/rv_Proprietario"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
@@ -25,7 +25,7 @@
     </android.support.v7.widget.RecyclerView>
 
     <TextView
-        android:id="@+id/tx_lista_proprietario"
+        android:id="@+id/tx_lista_livro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"

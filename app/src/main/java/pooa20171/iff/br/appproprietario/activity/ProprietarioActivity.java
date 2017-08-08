@@ -1,5 +1,9 @@
 package pooa20171.iff.br.appproprietario.activity;
 
+/**
+ * Created by Marcos on 07/08/2017.
+ */
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,14 +20,12 @@ import pooa20171.iff.br.appproprietario.R;
 import pooa20171.iff.br.appproprietario.adapter.ClickRecyclerViewListener;
 import pooa20171.iff.br.appproprietario.adapter.ProprietarioAdapter;
 import pooa20171.iff.br.appproprietario.model.Proprietario;
-
-public class ProprietarioActivity extends AppCompatActivity implements ClickRecyclerViewListener {
-
+public class ProprietarioActivity extends AppCompatActivity implements ClickRecyclerViewListener{
     private Realm realm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_proprietario);
+        setContentView(R.layout.activity_livro);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -57,7 +59,7 @@ public class ProprietarioActivity extends AppCompatActivity implements ClickRecy
 
     protected void onResume() {
         super.onResume();
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_Proprietario);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_Livro);
 
         recyclerView.setAdapter(new ProprietarioAdapter(getProprietarios(),this,this));
         RecyclerView.LayoutManager layout = new LinearLayoutManager(this,
@@ -73,6 +75,4 @@ public class ProprietarioActivity extends AppCompatActivity implements ClickRecy
         realm.close();
 
     }
-
-
 }
